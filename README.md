@@ -3,6 +3,9 @@
 ## Overview
 This project is a cutting-edge **AI and Blockchain-Based Event Ticket Selling Platform** that transforms the event ticketing experience by leveraging **Artificial Intelligence (AI)** for personalized marketing and **Blockchain** for secure, fraud-proof ticket transactions.
 
+## Figma URL 
+https://www.figma.com/design/GRJaegmNeculr1mDdV7y0g/Event-Ticket-Platform?node-id=0-1&t=wFAhoQrg4jXwqmLK-1 
+
 ### Key Features:
 - **AI-Powered Event Scheduling:** Optimize event dates based on trends and audience behavior.
 - **Personalized Marketing Engine:** Deliver tailored SMS and email campaigns.
