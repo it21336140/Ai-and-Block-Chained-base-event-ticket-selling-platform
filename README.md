@@ -1,17 +1,14 @@
 # AI-and-Blockchain-Based-Events-Ticket-Selling-Platform
 
-
 ## Overview
 This project is a cutting-edge **AI and Blockchain-Based Event Ticket Selling Platform** that transforms the event ticketing experience by leveraging **Artificial Intelligence (AI)** for personalized marketing and **Blockchain** for secure, fraud-proof ticket transactions.
 
 ### Key Features:
 - **AI-Powered Event Scheduling:** Optimize event dates based on trends and audience behavior.
 - **Personalized Marketing Engine:** Deliver tailored SMS and email campaigns.
-- **Blockchain-Powered Ticketing:** Secure and verifiable ticket transactions using smart contracts.
 - **NFT Collections:** Enable artists to sell exclusive digital content to fans.
 - **Sales Prediction:** Forecast ticket sales for better event planning and pricing.
 
----
 
 ## Dependencies
 This project uses the following technologies and frameworks:
@@ -28,7 +25,6 @@ This project uses the following technologies and frameworks:
 
 ### Blockchain:
 - **Ethereum/Solidity**: For smart contract development.
-- **Web3.js**: For Blockchain integration with the frontend.
 
 ### Database:
 - **Firebase**: For real-time database and authentication.
@@ -95,8 +91,6 @@ This project is licensed under the MIT License.
    git branch -M main
    git push -u origin main
    ```
-
-This setup will get you started with your project and include a comprehensive README file for others to understand the project structure and dependencies.
 
 ![image](https://github.com/user-attachments/assets/b1d4e575-1697-41c5-a416-1fdd1d5e2315)
 
