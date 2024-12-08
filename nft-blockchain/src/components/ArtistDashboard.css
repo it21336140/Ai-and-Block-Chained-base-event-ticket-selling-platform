@@ -1,0 +1,156 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  
+  /* Header styling */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  .header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .header .search-bar {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .header .search-bar input {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .header .search-bar button {
+    padding: 8px 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .header .search-bar button:hover {
+    background-color: #218838;
+  }
+  
+  .header .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .header .user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder */
+  }
+  
+  /* Main content styling */
+  .main-content {
+    padding: 0px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* NFT Form styling */
+  .nft-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nft-form .nft-image {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .nft-form .nft-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder */
+  }
+  
+  form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  form .form-group input,
+  form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  form .form-group input:focus,
+  form .form-group textarea:focus {
+    border-color: #28a745;
+  }
+  
+  form .form-group textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  /* Buttons */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .cancel-btn,
+  .create-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .cancel-btn {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #333;
+  }
+  
+  .create-btn {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .create-btn:hover {
+    background-color: #218838;
+  }
+  
