@@ -1,0 +1,81 @@
+from flask import Flask, request, jsonify
+import joblib
+from datetime import datetime
+import numpy as np
+
+# Initialize Flask app
+app = Flask(__name__)
+
+# Load saved components
+model = joblib.load('linear_regression_model.pkl')
+label_encoders = joblib.load('label_encoders.pkl')
+scaler = joblib.load('scaler.pkl')
+
+# Helper function to preprocess input data
+def preprocess_input(data):
+    # Convert categorical columns using saved label encoders
+    categorical_columns = [
+        'event_type', 'event_name', 'artist_lineup', 'venue',
+        'primary_age_group', 'ticket_buyers_from', 'gender_distribution',
+        'high_demand_season', 'public_holiday', 'competing_event',
+        'competing_event_name', 'competing_artist_lineup', 'competing_venue'
+    ]
+    for col in categorical_columns:
+        if col in data and col in label_encoders:
+            data[col] = label_encoders[col].transform([data[col]])[0]
+        else:
+            data[col] = 0  # Default value for missing or unknown categories
+
+    # Convert date columns to ordinal
+    date_columns = ['event_date', 'ticket_sales_begin', 'ticket_sales_end']
+    for col in date_columns:
+        if col in data:
+            data[col] = datetime.strptime(data[col], "%d/%m/%Y").toordinal()
+        else:
+            data[col] = 0  # Default for missing dates
+
+    # Convert start_time to numeric
+    if 'start_time' in data:
+        try:
+            dt = datetime.strptime(data['start_time'], "%I.%M %p")
+            data['start_time'] = dt.hour + dt.minute / 60.0
+        except ValueError:
+            data['start_time'] = 0.0  # Default for invalid/missing times
+
+    # Ensure all required columns are present
+    feature_order = [
+        'event_type', 'event_name', 'artist_lineup', 'venue', 'event_date',
+        'start_time', 'tickets_available', 'ticket_sales_begin', 'ticket_sales_end',
+        'primary_age_group', 'ticket_buyers_from', 'gender_distribution',
+        'high_demand_season', 'days_until_event', 'public_holiday',
+        'competing_event', 'competing_event_name', 'competing_artist_lineup',
+        'competing_venue'
+    ]
+    input_array = np.array([data.get(col, 0) for col in feature_order]).reshape(1, -1)
+
+    # Scale numerical features
+    input_array = scaler.transform(input_array)
+
+    return input_array
+
+# Route to predict tickets sold
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        # Get JSON data from request
+        data = request.get_json()
+
+        # Preprocess the input data
+        processed_input = preprocess_input(data)
+
+        # Make prediction
+        prediction = model.predict(processed_input)
+
+        # Return the prediction
+        return jsonify({"predicted_tickets_sold": round(prediction[0])})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
+# Run the app
+if __name__ == '__main__':
+    app.run(debug=True)
